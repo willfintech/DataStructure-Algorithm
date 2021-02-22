@@ -26,7 +26,10 @@ public class Test {
 
         SizeFilter sizeLess100 = new SizeFilter(100, "<");
         TypeFilter typeIsTxt = new TypeFilter("txt");
-        List<File> result = andValidator(sizeLess100, typeIsTxt);
-
+        AndFilterCombinator and = new AndFilterCombinator();
+        FilterTreeNode root = new FilterTreeNode(and, new FilterTreeNode(sizeLess100), new FilterTreeNode(typeIsTxt));
+        System.out.println(root.evaluate(file1, root));
+        System.out.println(root.evaluate(file2, root));
+        System.out.println(root.evaluate(file3, root));
     }
 }
