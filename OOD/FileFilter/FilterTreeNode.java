@@ -33,21 +33,26 @@ public class FilterTreeNode {
         this.right = right;
     }
 
-    // If input is just fileFilter, the left and right children will be enforced set to be Null.
+    // If input is just fileFilter, the left and right children will be enforced to set to be Null.
     public FilterTreeNode(FileFilter fileFilter) {
         this.fileFilter = fileFilter;
+        this.left = null;
+        this.right = null;
     }
 
     // methods
     public boolean evaluate(File file, FilterTreeNode root) {
+        if (root == null) {
+            return true;
+        }
         // 2 Situations
         // both children are null, so it's a fileFilter
         if (root.left == null && root.right == null) {
-            return this.fileFilter.evaluate(file);
+            return root.fileFilter.evaluate(file);
         }
 
         if (root.left != null && root.right != null) {
-            return this.filterCombinator.evaluate(evaluate(file, root.left), evaluate(file, root.right));
+            return root.filterCombinator.evaluate(evaluate(file, root.left), evaluate(file, root.right));
         }
 
         throw new IllegalArgumentException("FilterTree Construction Issues");
