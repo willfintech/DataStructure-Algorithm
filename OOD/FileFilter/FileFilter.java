@@ -11,7 +11,7 @@ public interface FileFilter {
 
 // 使用的时候要做到：
 // FileFilter ff = new sizeFilter(100, "<=");
-// SuffuxFilter ff = new suffixFilter("txt");
+// TypeFilter ff = new suffixFilter("txt");
 // void foo(FileFilter)
 
 // BuilderPattern

@@ -42,9 +42,6 @@ public class FilterTreeNode {
 
     // methods
     public boolean evaluate(File file, FilterTreeNode root) {
-        if (root == null) {
-            return true;
-        }
         // 2 Situations
         // both children are null, so it's a fileFilter
         if (root.left == null && root.right == null) {
