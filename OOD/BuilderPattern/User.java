@@ -2,7 +2,9 @@ package OOD.BuilderPattern;
 
 import java.util.Date;
 
-// Why use UserBuilderPattern
+// Why use UserBuilderPattern?
+// Main Reason: We want User as a Immutable Class, to avoid user to modify it, since it may cause inconsistency between the container and the DB
+// Other Benefit: Reduce the amount of Constructors
 
 public final class User {
     // required fields
