@@ -1,9 +1,9 @@
 package OOD.VendingMachine;
 
-public final class CoinPayment implements Payment{
+public final class CashPayment implements Payment{
     @Override
     public boolean pay(Product product, float payAmt) {
-        // coin payment process
+        // cash payment process
         return payAmt >= product.getProductPrice();
     }
 }

@@ -9,9 +9,20 @@ class Member extends Account {
     private List<BookItem> booksCheckedOut;
     private int totalCheckedOut;
 
-    private Member(AccountBuilder accountBuilder, String barCode) {
-        super(accountBuilder);
-        this.barCode = barCode;
+    private Member(MemberBuilder memberBuilder) {
+        super(memberBuilder);
+    }
+
+    public static class MemberBuilder extends AccountBuilder {
+        public MemberBuilder(String username, String password) {
+            super(username, password);
+        }
+
+        private String name;
+        private String phone;
+        private String email;
+        private Address address;
+        private String barCode;
     }
 
 //    public boolean reserveBookItem(BookItem bookItem);

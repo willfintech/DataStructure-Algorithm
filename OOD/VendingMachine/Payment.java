@@ -1,5 +1,5 @@
 package OOD.VendingMachine;
 
-public interface Payment {
-    abstract boolean pay(int ProductID);
+interface Payment {  // 同一个Package
+    abstract boolean pay(Product product, float payAmt);
 }

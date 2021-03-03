@@ -2,10 +2,10 @@ package OOD.VendingMachine;
 
 public class Product {
     private int productID;
-    private double productPrice;
+    private float productPrice;
     private int machineID;
 
-    public Product(int productID, double productPrice, int machineID) {
+    public Product(int productID, float productPrice, int machineID) {
         this.productID = productID;
         this.productPrice = productPrice;
         this.machineID = machineID;
@@ -15,7 +15,7 @@ public class Product {
         return productID;
     }
 
-    public double getProductPrice() {
+    public float getProductPrice() {
         return productPrice;
     }
 
