@@ -30,7 +30,7 @@ public class VendingMachine {
         storage.put(product, storage.getOrDefault(product, 0) + 1);
     }
 
-    public void removeProudct(Product product) {
+    public void removeProduct(Product product) {
         int count = storage.get(product);
         if (count < 0) {
             throw new IllegalArgumentException("Out of Stock");

@@ -2,9 +2,19 @@ package OOD.BuilderPattern;
 
 import java.util.Date;
 
-// Why use UserBuilderPattern?
+// Why use BuilderPattern?
 // Main Reason: We want User as a Immutable Class, to avoid user to modify it, since it may cause inconsistency between the container and the DB
 // Other Benefit: Reduce the amount of Constructors
+
+// When use BuilderPattern
+// 当一个类的构造函数参数个数超过4个，而且这些参数有些是可选的参数，考虑使用构造者模式。
+
+// Why not use 折叠构造函数模式(telescoping constructor pattern)?
+// Too many constructors with many inputs with different types and same types, easy to make mistakes
+
+// Why not apply Java Beans model with multiple setters on the original class?
+// Firstly, the object might be required as immutable, so we don't want to use Setter.
+
 
 public final class User {
     // required fields
@@ -39,8 +49,8 @@ public final class User {
     // Builder is an inner class since it's 1-1 relationship
     // 1. Only innerclass can be static; 2. Inner Class should be static.
     public static class UserBuilder {
-        private String username;
-        private String password;
+        private final String username;
+        private final String password;
         private String name;
         private Date birthDate;
         private String email;
@@ -52,10 +62,10 @@ public final class User {
             this.password = password;
         }
 
-        public UserBuilder setPassword(String password) {
-            this.password = password;
-            return this;
-        }
+//        public UserBuilder setPassword(String password) {  // 如何修改密码，是否这样通过setter修改密码，还是重新构建Builder?
+//            this.password = password;
+//            return this;
+//        }
 
         public UserBuilder setName(String name) {
             this.name = name;
@@ -88,7 +98,7 @@ public final class User {
         System.out.println(user1.name);
         System.out.println(user1.email);
         // Test Modification on User
-        user1 = user1.toUserBuilder().setPassword("xzdw520").setName("Will").build();
+        user1 = user1.toUserBuilder().setName("Will").build();
         System.out.println(user1.password);
         System.out.println(user1.name);
     }
