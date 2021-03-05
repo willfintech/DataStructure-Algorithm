@@ -9,8 +9,4 @@ abstract class Character {
     public Character(int ID) {
         this.ID = ID;
     }
-
-
-
-
 }
