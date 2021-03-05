@@ -2,7 +2,7 @@ package OOD.FactoryPattern;
 
 public class Triangle extends Shape {
     public Triangle() {
-        super("Circle");
+        super("Triangle");
     }
 
     @Override
